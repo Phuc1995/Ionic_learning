@@ -11,25 +11,22 @@ const routes: Routes = [
       {
         path: 'discover',
         children: [
-        {
-          path: '',
-          loadChildren: './discover/discover.module#DiscoverPageModule'
-        },
-        {
-          path: ':placeId',
-          loadChildren: './discover/place-deatail/place-deatail.module#PlaceDetailPageModule'
-        },
-      ]},
+          {
+            path: '',
+            loadChildren: './discover/discover.module#DiscoverPageModule'
+          },
+          {
+            path: ':placeId',
+            loadChildren: './discover/place-detail/place-detail.module#PlaceDetailPageModule'
+          },
+        ]
+      },
       {
         path: 'offers',
         children: [
           {
-            path: '', 
+            path: '',
             loadChildren: './offers/offers.module#OffersPageModule'
-          },
-          {
-            path: 'new', 
-            loadChildren: './offers/new-offers.module#NewOfferPageModule'
           },
           {
             path: 'edit/:placeId',
@@ -60,4 +57,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule],
 })
-export class PlacesPageRoutingModule {}
+export class PlacesPageRoutingModule { }
