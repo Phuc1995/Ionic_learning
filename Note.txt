@@ -1,3 +1,12 @@
 import { Router } from '@angular/router';
 import { NavController } from '@ionic/angular';
 
+get param form router:
+ constructor(private route: ActivatedRoute,
+    private navCtrl: NavController,
+    private placesServices: PlacesService)
+	
+remove line between item on Menu:
+	<ion-item lines="none">
+
+import { NavController, ModalController } from '@ionic/angular';

@@ -1,5 +1,6 @@
 <ion-header>
     <ion-toolbar>
+        <ion-menu-button slot="start"></ion-menu-button>
         <ion-title>Discover Places</ion-title>
     </ion-toolbar>
 </ion-header>
@@ -14,7 +15,11 @@
                         <ion-card-subtitle>{{loadedPlaces[0].price | currency}} / night</ion-card-subtitle>
                     </ion-card-header>
                     <ion-img [src]="loadedPlaces[0].imageUrl"></ion-img>
-                    <ion-card-content>{{loadedPlaces[0].description}}</ion-card-content>
+                    <ion-card-content>
+                        <p>
+                            <ion-label color="danger">{{loadedPlaces[0].description}}</ion-label>
+                        </p>
+                    </ion-card-content>
                     <div>
                         <ion-button fill="clear" color="primary" [routerLink]="['/',
                             'places',
@@ -33,7 +38,7 @@
                         'places',
                         'tabs',
                         'discover',
-                        place.id]">
+                        place.id]" detail>
                         <ion-thumbnail slot="start">
                             <ion-img [src]="place.imageUrl"></ion-img>
                         </ion-thumbnail>
