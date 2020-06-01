@@ -5,7 +5,7 @@ import { Booking } from './booking-mode';
   providedIn: 'root'
 })
 export class BookingService {
-  loadedBookings: Booking[];
+
 
   private _bookings: Booking[] = [
     {
