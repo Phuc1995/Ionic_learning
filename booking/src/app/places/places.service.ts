@@ -5,10 +5,10 @@ import { Place } from './place.model';
 })
 export class PlacesService {
   private _places: Place[] = [
-    new Place("p1", "title 1", "Depresion 1", "https://lh5.googleusercontent.com/p/AF1QipO3VPL9m-b355xWeg4MXmOQTauFAEkavSluTtJU=w225-h160-k-no", 1),
-    new Place("12", "title 2", "Depresion 2", "https://lh5.googleusercontent.com/p/AF1QipO3VPL9m-b355xWeg4MXmOQTauFAEkavSluTtJU=w225-h160-k-no", 2),
-    new Place("p3", "title 3", "Depresion 3", "https://lh5.googleusercontent.com/p/AF1QipO3VPL9m-b355xWeg4MXmOQTauFAEkavSluTtJU=w225-h160-k-no", 1),
-    new Place("p4", "title 4", "Depresion 4", "https://lh5.googleusercontent.com/p/AF1QipO3VPL9m-b355xWeg4MXmOQTauFAEkavSluTtJU=w225-h160-k-no", 2),
+    new Place("p1", "title 1", "Depresion 1", "https://lh5.googleusercontent.com/p/AF1QipO3VPL9m-b355xWeg4MXmOQTauFAEkavSluTtJU=w225-h160-k-no", 149.99, new Date('2019-01-01'), new Date('2019-12-31')),
+    new Place("12", "title 2", "Depresion 2", "https://lh5.googleusercontent.com/p/AF1QipO3VPL9m-b355xWeg4MXmOQTauFAEkavSluTtJU=w225-h160-k-no", 99.99, new Date('2019-01-01'), new Date('2019-12-31')),
+    new Place("p3", "title 3", "Depresion 3", "https://lh5.googleusercontent.com/p/AF1QipO3VPL9m-b355xWeg4MXmOQTauFAEkavSluTtJU=w225-h160-k-no", 129.99, new Date('2019-01-01'), new Date('2019-12-31')),
+    new Place("p4", "title 4", "Depresion 4", "https://lh5.googleusercontent.com/p/AF1QipO3VPL9m-b355xWeg4MXmOQTauFAEkavSluTtJU=w225-h160-k-no", 159.99, new Date('2019-01-01'), new Date('2019-12-31')),
   ];
 
   get places() {
