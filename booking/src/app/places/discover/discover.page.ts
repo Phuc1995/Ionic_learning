@@ -1,29 +1,58 @@
-import { Component, OnInit } from '@angular/core';
-import { PlacesService } from '../places.service';
-import { Place } from '../place.model';
-import { MenuController } from '@ionic/angular';
-import { SelectChangeEventDetail } from '@ionic/core'
+import {Component, OnDestroy, OnInit} from '@angular/core';
+import {PlacesService} from '../places.service';
+import {Place} from '../place.model';
+import {MenuController} from '@ionic/angular';
+import {SelectChangeEventDetail} from '@ionic/core';
+import {Subscription} from 'rxjs';
+import {AuthService} from '../../auth/auth.service';
 
 @Component({
-  selector: 'app-discover',
-  templateUrl: './discover.page.html',
-  styleUrls: ['./discover.page.scss'],
+    selector: 'app-discover',
+    templateUrl: './discover.page.html',
+    styleUrls: ['./discover.page.scss'],
 })
-export class DiscoverPage implements OnInit {
-  loadedPlaces: Place[];
-  listedLoadedPlaces: Place[];
-  constructor(private placeService: PlacesService, private menuCtrl: MenuController) { }
+export class DiscoverPage implements OnInit, OnDestroy {
+    loadedPlaces: Place[];
+    listedLoadedPlaces: Place[];
+    relevantPlaces: Place[];
+    private placesSub: Subscription;
 
-  ngOnInit() {
-    this.loadedPlaces = this.placeService.places;
-    this.listedLoadedPlaces = this.loadedPlaces.slice(1);
-  }
+    constructor(
+        private placeService: PlacesService,
+        private menuCtrl: MenuController,
+        private authService: AuthService,
+    ) {
+    }
 
-  onOpenMenu() {
-    this.menuCtrl.toggle();
-  }
+    ngOnInit() {
+        this.placeService.places.subscribe(places => {
+            this.loadedPlaces = places;
+            this.relevantPlaces = this.loadedPlaces;
+            this.listedLoadedPlaces = this.relevantPlaces.slice(1);
+        });
 
-  onFilterUpdate(event: CustomEvent<SelectChangeEventDetail>) {
-    console.log(event.detail);
-  }
+    }
+
+    onOpenMenu() {
+        this.menuCtrl.toggle();
+    }
+
+    onFilterUpdate(event: CustomEvent<SelectChangeEventDetail>) {
+        console.log(event.detail);
+        if (event.detail.value === 'all') {
+            this.relevantPlaces = this.loadedPlaces;
+            this.listedLoadedPlaces = this.relevantPlaces.slice(1);
+        } else {
+            this.relevantPlaces = this.loadedPlaces.filter(
+                place => place.userId !== this.authService.userID
+            );
+            this.listedLoadedPlaces = this.relevantPlaces.slice(1);
+        }
+    }
+
+    ngOnDestroy() {
+        if (this.placesSub) {
+            this.placesSub.unsubscribe();
+        }
+    }
 }
