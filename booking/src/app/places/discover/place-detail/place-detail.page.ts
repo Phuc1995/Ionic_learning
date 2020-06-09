@@ -21,11 +21,11 @@ export class PlaceDetailPage implements OnInit, OnDestroy {
     constructor(
         private router: ActivatedRoute,
         private navCtrl: NavController,
-        private placeService: PlacesService,
         private modalCtrl: ModalController,
         private actionSheetCtrl: ActionSheetController,
-        private bookingService: BookingService,
         private loadingCtrl: LoadingController,
+        private bookingService: BookingService,
+        private placeService: PlacesService,
         private authService: AuthService,
     ) {
     }
