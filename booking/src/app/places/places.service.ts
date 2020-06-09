@@ -1,9 +1,20 @@
 import {Injectable} from '@angular/core';
 import {BehaviorSubject} from 'rxjs';
-import {take, map, tap, delay} from 'rxjs/operators';
+import {take, map, tap, delay, switchMap} from 'rxjs/operators';
 
 import {Place} from './place.model';
 import {AuthService} from '../auth/auth.service';
+import {HttpClient} from '@angular/common/http';
+
+interface PlaceData {
+    availableFrom: string;
+    availableTo: string;
+    description: string;
+    imageUrl: string;
+    price: number;
+    title: string;
+    userId: string;
+}
 
 @Injectable({
     providedIn: 'root'
@@ -53,7 +64,10 @@ export class PlacesService {
         return this._places.asObservable();
     }
 
-    constructor(private authService: AuthService) {
+    constructor(
+        private authService: AuthService,
+        private http: HttpClient,
+    ) {
     }
 
     getPlace(id: string) {
@@ -64,11 +78,40 @@ export class PlacesService {
         );
     }
 
+    fetchPlaces() {
+        return this.http
+            .get<{ [key: string]: PlaceData }>('https://ionic-angular-e49a4.firebaseio.com/offered-places.json')
+            .pipe(map(resData => {
+                    const place = [];
+                    for (const key in resData) {
+                        if (resData.hasOwnProperty(key)) {
+                            place.push(
+                                new Place(
+                                    key,
+                                    resData[key].title,
+                                    resData[key].description,
+                                    resData[key].imageUrl,
+                                    resData[key].price,
+                                    new Date(resData[key].availableFrom),
+                                    new Date(resData[key].availableTo),
+                                    resData[key].userId,
+                                )
+                            );
+                        }
+                    }
+                    return place;
+                }),
+                tap(places => {
+                    this._places.next(places);
+                }));
+    }
+
     addPlace(title: string,
              description: string,
              price: number,
              dateFrom: Date,
              dateTo: Date) {
+        let generatedId: string;
         const newPlace = new Place(
             Math.random().toString(),
             title,
@@ -78,33 +121,53 @@ export class PlacesService {
             dateFrom,
             dateTo,
             this.authService.userID);
-        return this.places.pipe(take(1), delay(2000), tap(
-            places => {
-                this._places.next(places.concat(newPlace));
-            }
-        ));
+        return this.http.post<{ name: string }>('https://ionic-angular-e49a4.firebaseio.com/offered-places.json', {...newPlace, id: null})
+            .pipe(
+                switchMap(resData => {
+                    generatedId = resData.name;
+                    console.log(generatedId);
+                    return this.places;
+                }),
+                take(1),
+                tap(places => {
+                    newPlace.id = generatedId;
+                    this._places.next(places.concat(newPlace));
+                })
+            );
+        // return this.places.pipe(take(1), delay(2000), tap(
+        //     places => {
+        //         this._places.next(places.concat(newPlace));
+        //     }
+        // ));
     }
 
-    updatePlace(placeId: string, title: string, description: string){
+    updatePlace(placeId: string, title: string, description: string) {
+        let updatePlaces: Place[];
         return this.places.pipe(
             take(1),
-            delay(2000),
-            tap(places => {
-            const updatedPlaceIndex = places.findIndex( pl => pl.id === placeId);
-            console.log("updatedPlaceIndex: " + updatedPlaceIndex);
-            const updatePlaces = [...places];
-            const oldPlace = updatePlaces[updatedPlaceIndex];
-            updatePlaces[updatedPlaceIndex] = new Place(
-                oldPlace.id,
-                title,
-                description,
-                oldPlace.imageUrl,
-                oldPlace.price,
-                oldPlace.availableFrom,
-                oldPlace.availableTo,
-                oldPlace.userId,
-            );
-            this._places.next(updatePlaces);
-        }));
+            switchMap(places => {
+                const updatedPlaceIndex = places.findIndex(pl => pl.id === placeId);
+                console.log('updatedPlaceIndex: ' + updatedPlaceIndex);
+                updatePlaces = [...places];
+                const oldPlace = updatePlaces[updatedPlaceIndex];
+                updatePlaces[updatedPlaceIndex] = new Place(
+                    oldPlace.id,
+                    title,
+                    description,
+                    oldPlace.imageUrl,
+                    oldPlace.price,
+                    oldPlace.availableFrom,
+                    oldPlace.availableTo,
+                    oldPlace.userId,
+                );
+                return this.http.put(`https://ionic-angular-e49a4.firebaseio.com/offered-places/${placeId}.json`,
+                    {
+                        ...updatePlaces[updatedPlaceIndex], id: null
+                    });
+            }),
+            tap(() => {
+                this._places.next(updatePlaces);
+            })
+        );
     }
 }

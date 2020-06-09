@@ -15,8 +15,12 @@
 <ion-content>
     <ion-grid>
         <ion-row>
-            <ion-col>
-                <ion-list size="12" size-sm="8" offser-sm="2" class="ion-text-center">
+            <ion-col size="12" size-sm="8" offser-sm="2" class="ion-text-center">
+                <div class="ion-text-center">
+                    <ion-spinner color="primary" *ngIf="isLoading"></ion-spinner>
+                </div>
+                <p class="ion-text-center" *ngIf="!isLoading && offers.length <= 0">No offer found!</p>
+                <ion-list *ngIf="!isLoading && offers.length > 0">
                     <ion-item-sliding *ngFor="let offer of offers" #slidingItem>
                         <app-offer-item [offer]="offer"></app-offer-item>
                         <ion-item-options slot="end">
