@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CFBundleDevelopmentRegion</key>
+	<string>$(DEVELOPMENT_LANGUAGE)</string>
+	<key>CFBundleExecutable</key>
+	<string>$(EXECUTABLE_NAME)</string>
+	<key>CFBundleIdentifier</key>
+	<string>$(PRODUCT_BUNDLE_IDENTIFIER)</string>
+	<key>CFBundleInfoDictionaryVersion</key>
+	<string>6.0</string>
+	<key>CFBundleName</key>
+	<string>GLive</string>
+	<key>CFBundlePackageType</key>
+	<string>APPL</string>
+	<key>CFBundleShortVersionString</key>
+	<string>$(FLUTTER_BUILD_NAME)</string>
+	<key>CFBundleSignature</key>
+	<string>????</string>
+	<key>CFBundleVersion</key>
+	<string>$(FLUTTER_BUILD_NUMBER)</string>
+	<key>LSRequiresIPhoneOS</key>
+	<true/>
+	<key>UILaunchStoryboardName</key>
+	<string>LaunchScreen</string>
+	<key>UIMainStoryboardFile</key>
+	<string>Main</string>
+	<key>UISupportedInterfaceOrientations</key>
+	<array>
+		<string>UIInterfaceOrientationPortrait</string>
+		<string>UIInterfaceOrientationPortraitUpsideDown</string>
+		<string>UIInterfaceOrientationLandscapeLeft</string>
+		<string>UIInterfaceOrientationLandscapeRight</string>
+	</array>
+	<key>UISupportedInterfaceOrientations~ipad</key>
+	<array>
+		<string>UIInterfaceOrientationPortrait</string>
+		<string>UIInterfaceOrientationPortraitUpsideDown</string>
+		<string>UIInterfaceOrientationLandscapeLeft</string>
+		<string>UIInterfaceOrientationLandscapeRight</string>
+	</array>
+	<key>UIViewControllerBasedStatusBarAppearance</key>
+	<false/>
+	<!-- Google Sign-in Section -->
+	<key>CFBundleURLTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLName</key>
+			<string>zalo</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<!-- Zalo Sign-in app id -->
+				<string>zalo-2671321897118560151</string>
+				<!-- Facebook Sign-in app id -->
+				<string>fb338956384318129</string>
+				<!-- Copied from GoogleService-Info.plist key REVERSED_CLIENT_ID -->
+				<string>com.googleusercontent.apps.797482449852-vvkiiop2tmdbbmnp1d6qok82ufrtdps1</string>
+			</array>
+		</dict>
+	</array>
+	<!-- End of the Google Sign-in Section -->
+	<!-- Zalo Sign-in Section -->
+	<key>ZaloAppID</key>
+	<string>2671321897118560151</string>
+	<!-- Facebook Sign-in Section -->
+	<key>FacebookAppID</key>
+	<string>338956384318129</string>
+	<key>FacebookDisplayName</key>
+	<string>GLive</string>
+	<key>LSApplicationQueriesSchemes</key>
+	<array>
+		<string>fbapi</string>
+		<string>fb-messenger-share-api</string>
+		<string>fbauth2</string>
+		<string>fbshareextension</string>
+		<string>zalosdk</string>
+		<string>zaloshareext</string>
+		<string>https</string>
+        <string>http</string>
+	</array>
+	<!-- End of the Facebook Sign-in Section -->
+	<key>UIStatusBarHidden</key>
+	<false/>
+    <!-- Permission options for the `location` group -->
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>Need location when in use</string>
+	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+	<string>Always and when in use!</string>
+	<key>NSLocationUsageDescription</key>
+	<string>Older devices need location.</string>
+	<key>NSLocationAlwaysUsageDescription</key>
+	<string>Can I have location always?</string>
+
+	<!-- Permission options for the `mediaLibrary` group -->
+	<key>NSAppleMusicUsageDescription</key>
+	<string>Music!</string>
+	<key>kTCCServiceMediaLibrary</key>
+	<string>media</string>
+
+	<!-- Permission options for the `calendar` group -->
+	<key>NSCalendarsUsageDescription</key>
+	<string>Calendars</string>
+
+	<!-- Permission options for the `camera` group -->
+	<key>NSCameraUsageDescription</key>
+	<string>camera</string>
+
+	<!-- Permission options for the `contacts` group -->
+	<key>NSContactsUsageDescription</key>
+	<string>contacts</string>
+
+	<!-- Permission options for the `microphone` group -->
+	<key>NSMicrophoneUsageDescription</key>
+	<string>microphone</string>
+
+	<!-- Permission options for the `speech` group -->
+	<key>NSSpeechRecognitionUsageDescription</key>
+	<string>speech</string>
+
+	<!-- Permission options for the `sensors` group -->
+	<key>NSMotionUsageDescription</key>
+	<string>motion</string>
+
+	<!-- Permission options for the `photos` group -->
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>photos</string>
+
+	<!-- Permission options for the `reminder` group -->
+	<key>NSRemindersUsageDescription</key>
+	<string>reminders</string>
+
+	<!-- Permission options for the `bluetooth` -->
+	<key>NSBluetoothAlwaysUsageDescription</key>
+	<string>bluetooth</string>
+	<key>NSBluetoothPeripheralUsageDescription</key>
+	<string>bluetooth</string>
+
+	<!-- Permission options for the `appTrackingTransparency` -->
+	<key>NSUserTrackingUsageDescription</key>
+	<string>appTrackingTransparency</string>
+
+	<key>UIBackgroundModes</key>
+	<array>
+		<string>fetch</string>
+		<string>remote-notification</string>
+	</array>
+
+	<key>NSAppTransportSecurity</key>
+    <dict>
+        <key>NSAllowsArbitraryLoads</key>
+        <true/>
+    </dict>
+    <key>NSBonjourServices</key>
+    <array>
+        <string>_googlecast._tcp</string>
+    </array>
+</dict>
+</plist>

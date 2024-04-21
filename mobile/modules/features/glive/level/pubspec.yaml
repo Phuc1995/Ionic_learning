@@ -1,0 +1,42 @@
+name: level
+description: Level Module.
+publish_to: none
+version: 1.0.0+1
+
+environment:
+  sdk: ">=2.12.0 <3.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  common_module:
+    path: ../../../common/common_module
+
+  user_management:
+    path: ../user_management
+
+  cupertino_icons: ^1.0.2
+  flutter_modular: 5.0.2
+  logger: ^1.0.0
+  get: ^4.3.8
+  flutter_dotenv: ^5.0.0
+  equat_picker: ^0.8.0+3
+    http:able: ^2.0.3
+  image ^0.13.1
+  lazy_load_scrollview: ^1.3.0
+  syncfusion_flutter_sliders: ^19.2.51
+  flutter_screenutil: 5.3.1
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+flutter:
+
+  uses-material-design: true
+
+  module:
+    androidX: true
+    androidPackage: com.hita.glive.level
+    iosBundleIdentifier: com.hita.glive.level

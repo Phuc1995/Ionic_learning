@@ -1,0 +1,123 @@
+{
+  "project_info": {
+    "project_number": "797482449852",
+    "firebase_url": "https://streaming-flatform-default-rtdb.asia-southeast1.firebasedatabase.app",
+    "project_id": "streaming-flatform",
+    "storage_bucket": "streaming-flatform.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:797482449852:android:3d852fe381bf4ebe3009b9",
+        "android_client_info": {
+          "package_name": "com.hita.glive"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "797482449852-13v8021kp258higqt9qkccu5abv0ukda.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.hita.glive",
+            "certificate_hash": "133038d055d99ab9c29a84fdb4c6f0e7575e8000"
+          }
+        },
+        {
+          "client_id": "797482449852-f5fbt1d7ltuio0rg3od0d51n0mpfm72l.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.hita.glive",
+            "certificate_hash": "ef1c5c01034aa1589c8c1f5a519b2baae4d1e8ac"
+          }
+        },
+        {
+          "client_id": "797482449852-t3k8hre693jfpr7ggn05jhqkecv8lgv2.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAx0DbavHMrMmRYN96sZ6OLTRj85EuzEAE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "797482449852-69uglt5a8if99dhhonsc6utdnrhb0m3g.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "797482449852-fd0464ncanjds1rfk6q4k29nnmos7pr3.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.hita.gliveIdol"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:797482449852:android:2809a5be8d1f03ee3009b9",
+        "android_client_info": {
+          "package_name": "com.hita.glive_idol"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "797482449852-2hpdtrb5oj8lqb9vpt5mdh9n997bjbjo.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.hita.glive_idol",
+            "certificate_hash": "133038d055d99ab9c29a84fdb4c6f0e7575e8000"
+          }
+        },
+        {
+          "client_id": "797482449852-ohdsfdd0f3c5h99rirfqshf4gv3j58jp.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.hita.glive_idol",
+            "certificate_hash": "ef1c5c01034aa1589c8c1f5a519b2baae4d1e8ac"
+          }
+        },
+        {
+          "client_id": "797482449852-r5jc36utt65dmmujmfdh1fnoqtj9e6b1.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.hita.glive_idol",
+            "certificate_hash": "0cf50d1d3860b230467658dfbf2b39e2eb7c52aa"
+          }
+        },
+        {
+          "client_id": "797482449852-t3k8hre693jfpr7ggn05jhqkecv8lgv2.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAx0DbavHMrMmRYN96sZ6OLTRj85EuzEAE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "797482449852-69uglt5a8if99dhhonsc6utdnrhb0m3g.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "797482449852-fd0464ncanjds1rfk6q4k29nnmos7pr3.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.hita.gliveIdol"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
